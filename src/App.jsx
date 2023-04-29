@@ -27,7 +27,7 @@ function App() {
   return (
     <Container maxWidth="sm">
       <Box display="flex" flexDirection="column" alignItems="center">
-        <Typography variant="h3" gutterBottom>
+        <Typography variant="h2">
           ToDo List
         </Typography>
         <form onSubmit={handleSubmit}>
