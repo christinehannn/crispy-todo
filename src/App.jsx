@@ -8,20 +8,24 @@ import Typography from '@mui/material/Typography';
 import './App.css'
 
 function App() {
-  const [inputValue, setInputValue] = useState("")
+  const [todoValue, setTodoValue] = useState("")
+  const [detailsValue, setDetailsValue] = useState("")
   const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos")) || [])
   
   const handleSubmit = (event) => {
     event.preventDefault()
-    const newTodos = [...todos, inputValue]
+    const newTodos = [...todos, todoValue]
     setTodos(newTodos)
     localStorage.setItem("todos", JSON.stringify(newTodos))
-    setInputValue("")
+    setTodoValue("")
   }
 
-  const handleChange = (event) => {
-    console.log(event.target.value)
-    setInputValue(event.target.value)
+  const handleTodoChange = (event) => {
+    setTodoValue(event.target.value)
+  }
+
+  const handleDetailsChange = (event) => {
+    setDetailsValue(event.target.value)
   }
 
   return (
@@ -36,10 +40,16 @@ function App() {
               id="todo-input" 
               label="Add ToDo" 
               variant="outlined" 
-              value={inputValue} 
-              onChange={handleChange}
+              value={todoValue} 
+              onChange={handleTodoChange}
               required
             />
+            <TextField
+              id="todo-details" 
+              label="Additional details" 
+              variant="outlined" 
+              value={detailsValue} 
+              onChange={handleDetailsChange}
             />
             <div>
               <Button variant="outlined" size="small" type="submit">Save</Button>
