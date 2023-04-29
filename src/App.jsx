@@ -31,16 +31,18 @@ function App() {
           ToDo List
         </Typography>
         <form onSubmit={handleSubmit}>
-          <Stack spacing={2} direction="row" alignItems="center">
-            <TextField 
+          <Stack spacing={2} alignItems="center">
+            <TextField
               id="todo-input" 
               label="Add ToDo" 
               variant="outlined" 
               value={inputValue} 
               onChange={handleChange}
+              required
+            />
             />
             <div>
-              <Button variant="outlined" size="small">Save</Button>
+              <Button variant="outlined" size="small" type="submit">Save</Button>
             </div>
           </Stack>
         </form>
