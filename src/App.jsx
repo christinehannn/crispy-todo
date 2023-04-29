@@ -26,7 +26,7 @@ function App() {
 
   return (
     <Container maxWidth="sm">
-      <Box display="flex" flexDirection="column" alignItems="center">
+      <Stack spacing={6} alignItems="center">
         <Typography variant="h2">
           ToDo List
         </Typography>
@@ -44,12 +44,14 @@ function App() {
             </div>
           </Stack>
         </form>
-        {todos.map((todo, index) => 
-          <div key={index}>
-            {todo}
-          </div>
-        )}
-      </Box>
+        <Stack spacing={2}>
+          {todos.map((todo, index) => 
+            <div key={index}>
+              {todo}
+            </div>
+          )}
+        </Stack>
+      </Stack>
     </Container>
   )
 }
