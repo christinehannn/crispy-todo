@@ -1,7 +1,11 @@
 import { useState } from 'react'
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
@@ -59,10 +63,18 @@ function App() {
         </form>
         <Stack spacing={2}>
           {todos.map((item, index) => 
-            <div key={index}>
-              {item["todo"]}
-              {item["details"]}
-            </div>
+            <Accordion key={index}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls={`${index}-panel-content`}
+                id={`${index}-panel-header`}
+              >
+                <Typography>{item["todo"]}</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>{item["details"]}</Typography>
+              </AccordionDetails>
+            </Accordion>
           )}
         </Stack>
       </Stack>
