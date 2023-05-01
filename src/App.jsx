@@ -14,10 +14,11 @@ function App() {
   
   const handleSubmit = (event) => {
     event.preventDefault()
-    const newTodos = [...todos, todoValue]
+    const newTodos = [...todos, {todo: todoValue, details: detailsValue}]
     setTodos(newTodos)
     localStorage.setItem("todos", JSON.stringify(newTodos))
     setTodoValue("")
+    setDetailsValue("")
   }
 
   const handleTodoChange = (event) => {
@@ -57,9 +58,10 @@ function App() {
           </Stack>
         </form>
         <Stack spacing={2}>
-          {todos.map((todo, index) => 
+          {todos.map((item, index) => 
             <div key={index}>
-              {todo}
+              {item["todo"]}
+              {item["details"]}
             </div>
           )}
         </Stack>
