@@ -57,7 +57,7 @@ function App() {
             </div>
           </Stack>
         </form>
-        <Stack spacing={2}>
+        <Stack sx={{ width: '100%' }} spacing={2}>
           <TodoAccordions todos={todos} />
         </Stack>
       </Stack>
