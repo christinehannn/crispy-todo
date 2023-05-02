@@ -15,7 +15,7 @@ const TodoAccordions = ({ todos }) => {
         <Typography>{item["todo"]}</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>{item["details"]}</Typography>
+        <Typography variant='caption' >{item["details"]}</Typography>
       </AccordionDetails>
     </Accordion>
   )
